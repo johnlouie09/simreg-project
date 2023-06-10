@@ -324,7 +324,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         <div class="section-title">
           <h2>Team</h2>
-          <p>Our team was collaborated by ACT (Associate in Computer Technology) and BSCS (Bachelor of Science in Computer Science) to build this powerful, excellent design, interactive, minimalist and especially a responsive website. Thanks to BootstrapMade for this template</p>
+          <p>Our team was collaborated by ACT (Associate in Computer Technology) and BSCS (Bachelor of Science in Computer Science) to build this powerful, excellent design and interactive website. Thanks to BootstrapMade for this template</p>
         </div>
 
         <div class="row">
@@ -351,9 +351,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="member-img">
                 <img src="assets/img/team/designer.jpg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href="https://twitter.com/JeanAyen194243"><i class="bi bi-twitter"></i></a>
                   <a href="https://www.facebook.com/profile.php?id=100074733617993"><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.instagram.com/jeanny122621/"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -386,7 +386,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <img src="assets/img/team/tester-1.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.facebook.com/felma.colico.9"><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
@@ -412,7 +412,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href="https://www.facebook.com/rizaline.banaga"><i class="bi bi-facebook"></i></a>
-                  <a href="https://www.instagram.com/katalinaa_02/?igshid=ZDc4ODBmNjlmNQ%3D%3D&fbclid=IwAR0W-Badvl42p0KiJLeOb-crzNJo2uaBsR9DToK6XjzkBI8KcTxXcbg-tRs"><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.instagram.com/katalinaa_02/"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -424,11 +424,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="600">
             <div class="member">
               <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                <img src="assets/img/team/data-admin-2.jpg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href="https://twitter.com/AprilanneCadag/"><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/aprilanne.cadag"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/itsbabyannecadag/"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
               <div class="member-info">
