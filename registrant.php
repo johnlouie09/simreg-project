@@ -169,18 +169,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="col-md-6 mx-auto">
                         <div class="form-group">
                             <label>Mobile Number</label>
-                            <input type="number" name="mobile_number" class="form-control <?php echo (!empty($mobile_number_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $mobile_number; ?>">
+                            <input type="text" name="mobile_number" class="form-control <?php echo (!empty($mobile_number_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $mobile_number; ?>">
                             <span class="invalid-feedback"><?php echo $mobile_number_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Gender</label>
-                            <input type="text" name="gender" class="form-control <?php echo (!empty($gender_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $gender; ?>">
-                            <span class="invalid-feedback"><?php echo $gender_err;?></span>
+                            <label>Gender</label> 
+                            <select name="gender" class="form-select" aria-label="Default select example">
+                                <option selected disabled>select here</option>
+                                <option value="<?php echo $gender = "Female"; ?>">Female</option>
+                                <option value="<?php echo $gender = "Male"; ?>">Male</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Provider</label>
-                            <input type="text" name="provider" class="form-control <?php echo (!empty($provider_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $provider; ?>">
-                            <span class="invalid-feedback"><?php echo $provider_err;?></span>
+                            <select name="provider" class="form-select" aria-label="Default select example">
+                                <option selected disabled>select here</option>
+                                <option value="<?php echo $provider = "DITO"; ?>">DITO</option>
+                                <option value="<?php echo $provider = "Globe"; ?>">Globe</option>
+                                <option value="<?php echo $provider = "TNT"; ?>">TNT</option>
+                                <option value="<?php echo $provider = "Smart"; ?>">Smart</option>
+                                <option value="<?php echo $provider = "TM"; ?>">TM</option>
+                                <option value="<?php echo $provider = "Sun"; ?>">Sun</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Date Registered</label>
