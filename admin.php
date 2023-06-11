@@ -47,15 +47,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <style>
-        .wrapper{
-            width: 100;
-            margin: 0;
-        }
-        table tr td:last-child{
-            width: 120px;
-        }
-    </style>
 
 </head>
 <body>
