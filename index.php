@@ -161,7 +161,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <!-- Modal body -->
       <div class="modal-body">
-      <?php 
+        <?php 
         if(!empty($login_err)){
             echo '<div class="alert alert-danger">' . $login_err . '</div>';
         }        
@@ -179,15 +179,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+              
             </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Login">
+            </div> 
         </form>
       </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-      </div>
+   
 
     </div>
   </div>

@@ -3,88 +3,38 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$name = $address = $email = $mobile_number = $gender = $provider = $date_registered = "";
-$name_err = $address_err = $email_err = $mobile_number_err = $gender_err = $provider_err = $date_registered_err = "";
+$firstname = $middlename = $surname = $mobile_number = $gender = $provider = $date_of_birth = $government_id = $id_number = $province = $city = $barangay = $street = $zipcode = $imageupload = "";
+$firstname_err = $middlename_err = $surname_err = $mobile_number_err = $gender_err = $provider_err = $date_of_birth_err = $government_id_err = $id_number_err = $province_err = $city_err = $barangay_err = $street_err = $zipcode_err = $user_photo_err = "";
+
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    
-    // Validate name
-    $input_name = trim($_POST["name"]);
-    if(empty($input_name)){
-        $name_err = "Please enter a name.";
-    } elseif(!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $name_err = "Please enter a valid name.";
-    } else{
-        $name = $input_name;
-    }
-    
-    // Validate address
-    $input_address = trim($_POST["address"]);
-    if(empty($input_address)){
-        $address_err = "Please enter an address.";     
-    } else{
-        $address = $input_address;
-    }
-    
-    // Validate email
-    $input_email = trim($_POST["email"]);
-    if(empty($input_email)){
-        $email_err = "Please enter your email account.";     
-    } else{
-        $email = $input_email;
-    }
 
-    // Validate mobile number
-    $input_mobile_number = trim($_POST["mobile_number"]);
-    if(empty($input_mobile_number)){
-        $mobile_number_err = "Please enter your mobile number.";     
-    } else{
-        $mobile_number = $input_mobile_number;
-    }
-
-    // Validate gender
-    $input_gender = trim($_POST["gender"]);
-    if(empty($input_gender)){
-        $gender_err = "Please enter your gender.";     
-    } else{
-        $gender = $input_gender;
-    }
-
-    // Validate provider
-    $input_provider = trim($_POST["provider"]);
-    if(empty($input_provider)){
-        $provider_err = "Please enter your provider.";     
-    } else{
-        $provider = $input_provider;
-    }
-
-    // Validate date registered
-    $input_date_registered = trim($_POST["date_registered"]);
-    if(empty($input_date_registered)){
-        $date_registered_err = "Please enter the date.";     
-    } else{
-        $date_registered = $input_date_registered;
-    }
 
     // Check input errors before inserting in database
-    if(empty($name_err) && empty($address_err) && empty($email_err) && empty($mobile_number_err) && empty($gender_err) && empty($provider_err) && empty($date_registered_err)){
+    if(empty($firstname_err) && empty($middlename_err) && empty($surname_err) && empty($mobile_number_err) && empty($gender_err) && empty($provider_err) && empty($date_of_birth_err) && empty($province_err) && empty($city_err) && empty($barangay_err) && empty($street_err) && empty($zipcode_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO registrants (name, address, email, mobile_number, gender, provider, date_registered) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO registrants (firstname, middlename, surname, mobile_number, gender, provider, date_of_birth, province, city, barangay, street, zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sssssss", $param_name, $param_address, $param_email, $param_mobile_number, $param_gender, $param_provider, $param_date_registered);
+            mysqli_stmt_bind_param($stmt, "ssssssssssss", $param_firstname, $param_middlename, $param_surname, $param_mobile_number, $param_gender, $param_provider, $param_date_of_birth, $param_province, $param_city, $param_barangay, $param_street, $param_zipcode);
             
             // Set parameters
-            $param_name = $name;
-            $param_address = $address;
-            $param_email = $email;
+            $param_firstname = $firstname;
+            $param_middlename = $middlename;
+            $param_surname = $surname;
             $param_mobile_number = $mobile_number;
             $param_gender = $gender;
             $param_provider = $provider;
-            $param_date_registered = $date_registered;
-            
+            $param_date_of_birth = $date_of_birth;
+            $param_province = $province;
+            $param_city = $city;
+            $param_barangay = $barangay;
+            $param_street = $street;
+            $param_zipcode = $zipcode;
+
+           
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records created successfully. Redirect to landing page
@@ -138,31 +88,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <!-- CDN Links --> 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+  <!-- Datatables Plugin CDN -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
 </head>
 
 <body>
-    <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.php">SimReg</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            <h1 class="logo"><a href="index.php">SimReg</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="getstarted scrollto" href="">Registrant Page</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-        <div class="mt-5">
-
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="getstarted scrollto">Registrant Page</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+   </header><!-- End Header -->
+        <div class="mt-3 clearfix">
+            <h2 class="pull-left">..........</h2>
         </div>
         <div class="container-md shadow-lg border mt-5" data-aos="fade-up" data-aos-delay="100">
-         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/formdata" autocomplete="off">
             <div class="row mx-3">
                 
                 
@@ -170,26 +125,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <p>Please fill this form and submit to add registrant record to the database.</p>
                     <div class="col-md-6 mx-auto">
                         <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $name; ?>">
-                            <span class="invalid-feedback"><?php echo $name_err;?></span>
+                            <label>First Name</label>
+                            <input type="text" name="firstname" class="form-control <?php echo (!empty($firstname_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $firstname; ?>" required>
+                            <span class="invalid-feedback"><?php echo $firstname_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Address</label>
-                            <textarea name="address" class="form-control <?php echo (!empty($address_err)) ? 'is-invalid' : ''; ?>"><?php echo $address; ?></textarea>
-                            <span class="invalid-feedback"><?php echo $address_err;?></span>
+                            <label>Middle Name</label>
+                            <input type="text"name="middlename" class="form-control <?php echo (!empty($middlename_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $middlename; ?>">
+                            <span class="invalid-feedback"><?php echo $middlename_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
-                            <span class="invalid-feedback"><?php echo $email_err;?></span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mx-auto">
-                        <div class="form-group">
-                            <label>Mobile Number</label>
-                            <input type="text" name="mobile_number" class="form-control <?php echo (!empty($mobile_number_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $mobile_number; ?>">
-                            <span class="invalid-feedback"><?php echo $mobile_number_err;?></span>
+                            <label>Surname</label>
+                            <input type="text" name="surname" class="form-control <?php echo (!empty($surname_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $surname; ?>">
+                            <span class="invalid-feedback"><?php echo $surname_err;?></span>
                         </div>
                         <div class="form-group">
                             <label>Gender</label> 
@@ -208,23 +156,64 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <option value="<?php echo $provider = "TNT"; ?>">TNT</option>
                                 <option value="<?php echo $provider = "Smart"; ?>">Smart</option>
                                 <option value="<?php echo $provider = "TM"; ?>">TM</option>
-                                <option value="<?php echo $provider = "Sun"; ?>">Sun</option>
+                                <option value="<?php echo $provider = "SUN"; ?>">SUN</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Date Registered</label>
-                            <input type="datetime-local" name="date_registered" class="form-control <?php echo (!empty($date_registered_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $date_registered; ?>">
-                            <span class="invalid-feedback"><?php echo $date_registered_err;?></span>
+                            <label>Mobile Number</label>
+                            <input type="text" name="mobile_number" class="form-control <?php echo (!empty($mobile_number_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $mobile_number; ?>">
+                            <span class="invalid-feedback"><?php echo $mobile_number_err;?></span>
                         </div>
                     </div>
-                
-              </div>
-                <div class="mb-3 mx-4">
-                    <input type="submit" class="btn btn-primary" value="Submit" href="admin.php">
-                    <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
-                </div>
+                    <div class="col-md-6 mx-auto">
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date" name="date_of_birth" class="form-control <?php echo (!empty($date_of_birth_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $date_of_birth; ?>">
+                            <span class="invalid-feedback"><?php echo $date_of_birth_err;?></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Province</label> 
+                            <select name="province" class="form-select" aria-label="Default select example">
+                                <option selected disabled>select here</option>
+                                <option value="<?php echo $province = "Camarines Sur"; ?>">Camarines Sur</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>City/Municipality</label> 
+                            <select name="city" class="form-select" aria-label="Default select example">
+                                <option selected disabled>select here</option>
+                                <option value="<?php echo $city = "Iriga City"; ?>">Iriga City</option>
+                                <option value="<?php echo $city = "Baao"; ?>">Baao</option>
+                                <option value="<?php echo $city = "Buhi"; ?>">Buhi</option>
+                                <option value="<?php echo $city = "Bato"; ?>">Bato</option>
+                                <option value="<?php echo $city = "Balatan"; ?>">Balatan</option>
+                                <option value="<?php echo $city = "Nabua"; ?>">Nabua</option>
+                                <option value="<?php echo $city = "Bula"; ?>">Bula</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Barangay</label>
+                            <input type="text" name="barangay" class="form-control <?php echo (!empty($barangay_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $barangay; ?>">
+                            <span class="invalid-feedback"><?php echo $barangay_err;?></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Street</label>
+                            <input type="text" name="street" class="form-control <?php echo (!empty($street_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $street; ?>">
+                            <span class="invalid-feedback"><?php echo $street_err;?></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Zip Code</label>
+                            <input type="text" name="zipcode" class="form-control <?php echo (!empty($zipcode_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $zipcode; ?>">
+                            <span class="invalid-feedback"><?php echo $zipcode_err;?></span>
+                        </div>
+                    </div>
+            </div>
+                    <div class="mb-3 mx-4 modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
+                    </div>
         </form>        
-        </div>
+       </div>
     
   
 
