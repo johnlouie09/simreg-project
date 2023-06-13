@@ -82,38 +82,33 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
+        <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.php">SimReg</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            <h1 class="logo"><a>SimReg</a></h1>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
-          <li><a class="getstarted scrollto" href="">Admin</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="getstarted scrollto">Delete Page</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+   </header><!-- End Header -->
 
-    </div>
-  </header><!-- End Header -->
 
-    <div class="wrapper">
+<section id="hero">
+   <div class="container-md shadow-lg border mt-5" data-aos="fade-up" data-aos-delay="100">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
+                <div>
                     <h2 class="mt-5 mb-3">Delete Record</h2>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <div class="alert alert-danger">
+                        <div class="alert alert-dark">
                             <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
                             <p>Are you sure you want to delete this registrant record?</p>
                             <p>
                                 <input type="submit" value="Yes" class="btn btn-danger">
-                                <a href="index.php" class="btn btn-secondary">No</a>
+                                <a href="admin.php" class="btn btn-secondary">No</a>
                             </p>
                         </div>
                     </form>
@@ -121,6 +116,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             </div>        
         </div>
     </div>
+</section>
 
 
 

@@ -47,6 +47,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+  <!-- Datatables Plugin CDN -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
 </head>
 <body>
@@ -54,9 +60,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="">Registrant Details</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <h1 class="logo"><a>Registrant Details</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -68,13 +72,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
   </header><!-- End Header -->
 
-    <div class="wrapper">
-        <div class="container-fluid">
+  <section id=hero>
+        <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="mt-5 mb-3 clearfix">
-                        <h2 class="pull-left">..........</h2>
-                    </div>
                     <?php
                     // Include config file
                     require_once "config.php";
@@ -83,10 +84,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     $sql = "SELECT * FROM registrants";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
-                            echo '<table class="table table-bordered table-striped table-hover" data-aos="fade-down" data-aos-delay="100">';
-                                echo "<thead>";
+                            echo '<table class="table table-bordered table-striped table-hover table-sm table-responsive{-sm|-md|-lg|-xl|-xxl}" data-aos="fade-down" data-aos-delay="100">';
+                                echo '<thead class="table-light">';
                                     echo "<tr>";
-                                        echo "<th>Registrants ID</th>";
+                                        echo "<th>Registrant ID</th>";
                                         echo "<th>First Name</th>";
                                         echo "<th>Middle Name</th>";
                                         echo "<th>Last Name</th>";
@@ -98,14 +99,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                         echo "<th>City/Municipality</th>";
                                         echo "<th>Barangay</th>";
                                         echo "<th>Street</th>";
-                                        echo "<th>Zip Code</th>";
                                         echo "<th>Date Registered</th>";
                                         echo "<th>Actions</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
+                                    echo "<tr class='text-uppercase'>";
                                         echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['firstname'] . "</td>";
                                         echo "<td>" . $row['middlename'] . "</td>";
@@ -118,12 +118,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                         echo "<td>" . $row['city'] . "</td>";
                                         echo "<td>" . $row['barangay'] . "</td>";
                                         echo "<td>" . $row['street'] . "</td>";
-                                        echo "<td>" . $row['zipcode'] . "</td>";
                                         echo "<td>" . $row['date_registered'] . "</td>";
                                         echo "<td>";
-                                            echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
-                                            echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Resgistrant" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                            echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Registrant" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                         echo "</td>";
                                     echo "</tr>";
                                 }
@@ -143,13 +141,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     mysqli_close($link);
                     ?>
                 </div>
-                <!-- <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a> -->
             </div>        
         </div>
-    </div>
-
-
-
+    </section>
 
     
 

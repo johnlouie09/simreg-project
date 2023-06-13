@@ -3,8 +3,8 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$firstname = $middlename = $surname = $mobile_number = $gender = $provider = $date_of_birth = $government_id = $id_number = $province = $city = $barangay = $street = $zipcode = $imageupload = "";
-$firstname_err = $middlename_err = $surname_err = $mobile_number_err = $gender_err = $provider_err = $date_of_birth_err = $government_id_err = $id_number_err = $province_err = $city_err = $barangay_err = $street_err = $zipcode_err = $user_photo_err = "";
+$firstname = $middlename = $surname = $mobile_number = $gender = $provider = $date_of_birth = $province = $city = $barangay = $street = "";
+$firstname_err = $middlename_err = $surname_err = $mobile_number_err = $gender_err = $provider_err = $date_of_birth_err = $government_id_err = $id_number_err = $province_err = $city_err = $barangay_err = $street_err = "";
 
  
 // Processing form data when form is submitted
@@ -14,11 +14,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting in database
     if(empty($firstname_err) && empty($middlename_err) && empty($surname_err) && empty($mobile_number_err) && empty($gender_err) && empty($provider_err) && empty($date_of_birth_err) && empty($province_err) && empty($city_err) && empty($barangay_err) && empty($street_err) && empty($zipcode_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO registrants (firstname, middlename, surname, mobile_number, gender, provider, date_of_birth, province, city, barangay, street, zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO registrants (firstname, middlename, surname, mobile_number, gender, provider, date_of_birth, province, city, barangay, street) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssssssssss", $param_firstname, $param_middlename, $param_surname, $param_mobile_number, $param_gender, $param_provider, $param_date_of_birth, $param_province, $param_city, $param_barangay, $param_street, $param_zipcode);
+            mysqli_stmt_bind_param($stmt, "sssssssssss", $param_firstname, $param_middlename, $param_surname, $param_mobile_number, $param_gender, $param_provider, $param_date_of_birth, $param_province, $param_city, $param_barangay, $param_street);
             
             // Set parameters
             $param_firstname = $firstname;
@@ -32,7 +32,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_city = $city;
             $param_barangay = $barangay;
             $param_street = $street;
-            $param_zipcode = $zipcode;
 
            
             // Attempt to execute the prepared statement
@@ -98,12 +97,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 
 <body>
+
+    <!-- Header -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <h1 class="logo"><a href="index.php">SimReg</a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            <h1 class="logo"><a>SimReg</a></h1>
 
             <nav id="navbar" class="navbar">
                 <ul>
@@ -113,11 +112,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </nav><!-- .navbar -->
         </div>
    </header><!-- End Header -->
-        <div class="mt-3 clearfix">
-            <h2 class="pull-left">..........</h2>
-        </div>
+        
+   <section id="hero">
         <div class="container-md shadow-lg border mt-5" data-aos="fade-up" data-aos-delay="100">
-         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/formdata" autocomplete="off">
+         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="row mx-3">
                 
                 
@@ -201,11 +199,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <input type="text" name="street" class="form-control <?php echo (!empty($street_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $street; ?>">
                             <span class="invalid-feedback"><?php echo $street_err;?></span>
                         </div>
-                        <div class="form-group">
-                            <label>Zip Code</label>
-                            <input type="text" name="zipcode" class="form-control <?php echo (!empty($zipcode_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $zipcode; ?>">
-                            <span class="invalid-feedback"><?php echo $zipcode_err;?></span>
-                        </div>
                     </div>
             </div>
                     <div class="mb-3 mx-4 modal-footer">
@@ -214,7 +207,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
         </form>        
        </div>
-    
+    </section>
   
 
 <div id="preloader"></div>

@@ -44,9 +44,7 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.php">SimReg</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <h1 class="logo"><a>SimReg</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -61,19 +59,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
+<section id="hero">
   <div class="text-center" class="container position-relative" data-aos="fade-up" data-aos-delay="100">
     <img src="assets/img/2j6jxp.gif" style="width:700;height:700px;">
   </div>
-
+</section>
 
   
 

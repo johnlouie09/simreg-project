@@ -120,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- CDN Links --> 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
 
 </head>
 
@@ -130,9 +130,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.php">SimReg</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <h1 class="logo"><a>SimReg</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -170,7 +168,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
                 <label>Username</label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" required>
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group">
