@@ -72,7 +72,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
   </header><!-- End Header -->
 
-  <section id=hero>
+  <section id="hero">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -105,7 +105,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
-                                    echo "<tr class='text-uppercase'>";
+                                    echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['firstname'] . "</td>";
                                         echo "<td>" . $row['middlename'] . "</td>";

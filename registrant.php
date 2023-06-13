@@ -4,15 +4,117 @@ require_once "config.php";
  
 // Define variables and initialize with empty values
 $firstname = $middlename = $surname = $mobile_number = $gender = $provider = $date_of_birth = $province = $city = $barangay = $street = "";
-$firstname_err = $middlename_err = $surname_err = $mobile_number_err = $gender_err = $provider_err = $date_of_birth_err = $government_id_err = $id_number_err = $province_err = $city_err = $barangay_err = $street_err = "";
+$firstname_err = $middlename_err = $surname_err = $mobile_number_err = $gender_err = $provider_err = $date_of_birth_err = $province_err = $city_err = $barangay_err = $street_err = "";
 
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+    // Validate name
+    $input_firstname = trim($_POST["firstname"]);
+    if(empty($input_firstname)){
+        $firstname_err = "Please enter a name.";
+    } elseif(!filter_var($input_firstname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $firstname_err = "Please enter a valid name.";
+    } else{
+        $firstname = $input_firstname;
+    }
+
+    // Validate name
+    $input_middlename = trim($_POST["middlename"]);
+    if(empty($input_middlename)){
+        $middlename_err = "Please enter a name.";
+    } elseif(!filter_var($input_middlename, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $middlename_err = "Please enter a valid name.";
+    } else{
+        $middlename = $input_middlename;
+    }
+
+    // Validate name
+    $input_surname = trim($_POST["surname"]);
+    if(empty($input_surname)){
+        $surname_err = "Please enter a name.";
+    } elseif(!filter_var($input_surname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $surname_err = "Please enter a valid name.";
+    } else{
+        $surname = $input_surname;
+    }
+    
+    // Validate address
+    $input_address = trim($_POST["address"]);
+    if(empty($input_address)){
+        $address_err = "Please enter an address.";     
+    } else{
+        $address = $input_address;
+    }
+
+    // Validate mobile_number
+    $input_mobile_number = trim($_POST["mobile_number"]);
+    if(empty($input_mobile_number)){
+        $mobile_number_err = "Please enter an mobile_number.";     
+    } else{
+        $mobile_number = $input_mobile_number;
+    }
+
+    // Validate gender
+    $input_gender = trim($_POST["gender"]);
+    if(empty($input_gender)){
+        $mobile_number_err = "Please enter an gender.";     
+    } else{
+        $mobile_gender = $input_gender;
+    }
+
+    // Validate provider
+    $input_provider = trim($_POST["provider"]);
+    if(empty($input_provider)){
+        $provider_err = "Please enter an provider.";     
+    } else{
+        $provider = $input_provider;
+    }
+
+    // Validate date_of_birth
+    $input_date_of_birth = trim($_POST["date_of_birth"]);
+    if(empty($input_date_of_birth)){
+        $date_of_birth_err = "Please enter an date_of_birth.";     
+    } else{
+        $date_of_birth = $input_date_of_birth;
+    }
+    
+    // Validate province
+    $input_province = trim($_POST["province"]);
+    if(empty($input_province)){
+        $province_err = "Please enter an province.";     
+    } else{
+        $province = $input_province;
+    }
+
+    // Validate city
+    $input_city = trim($_POST["city"]);
+    if(empty($input_city)){
+        $city_err = "Please enter an city.";     
+    } else{
+        $city = $input_city;
+    }
+
+    // Validate barangay
+    $input_barangay = trim($_POST["barangay"]);
+    if(empty($input_barangay)){
+        $barangay_err = "Please enter an barangay.";     
+    } else{
+        $barangay = $input_barangay;
+    }
+
+    // Validate street
+    $input_street = trim($_POST["street"]);
+    if(empty($input_street)){
+        $street_err = "Please enter an street.";     
+    } else{
+        $street = $input_street;
+    }
+
 
     // Check input errors before inserting in database
-    if(empty($firstname_err) && empty($middlename_err) && empty($surname_err) && empty($mobile_number_err) && empty($gender_err) && empty($provider_err) && empty($date_of_birth_err) && empty($province_err) && empty($city_err) && empty($barangay_err) && empty($street_err) && empty($zipcode_err)){
+    if(empty($firstname_err) && empty($middlename_err) && empty($surname_err) && empty($mobile_number_err) && empty($gender_err) && empty($provider_err) && empty($date_of_birth_err) && empty($province_err) && empty($city_err) && empty($barangay_err) && empty($street_err)){
         // Prepare an insert statement
         $sql = "INSERT INTO registrants (firstname, middlename, surname, mobile_number, gender, provider, date_of_birth, province, city, barangay, street) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
