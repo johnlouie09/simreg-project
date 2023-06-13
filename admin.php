@@ -73,7 +73,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   </header><!-- End Header -->
 
   <section id="hero">
-        <div class="container">
+        <div class="container-fluid">
+            <div class="mb-3 clearfix">
+                <h2 class="pull-left">...</h2>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <?php

@@ -3,8 +3,8 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$firstname = $middlename = $surname = $mobile_number = $gender = $provider = $date_of_birth = $government_id = $id_number = $province = $city = $barangay = $street = $zipcode = "";
-$firstname_err = $middlename_err = $surname_err = $mobile_number_err = $gender_err = $provider_err = $date_of_birth_err = $government_id_err = $id_number_err = $province_err = $city_err = $barangay_err = $street_err = "";
+$firstname = $middlename = $surname = $mobile_number = $gender = $provider = $date_of_birth = $province = $city = $barangay = $street = "";
+$firstname_err = $middlename_err = $surname_err = $mobile_number_err = $gender_err = $provider_err = $date_of_birth_err = $province_err = $city_err = $barangay_err = $street_err = "";
  
 // Processing form data when form is submitted
 if(isset($_POST["id"]) && !empty($_POST["id"])){
@@ -15,7 +15,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Check input errors before inserting in database
     if(empty($firstname_err) && empty($middlename_err) && empty($surname_err) && empty($mobile_number_err) && empty($gender_err) && empty($provider_err) && empty($date_of_birth_err) && empty($province_err) && empty($city_err) && empty($barangay_err) && empty($street_err)){
         // Prepare an update statement
-        $sql = "UPDATE registrants SET firstname=?, middlename=?, surname=?, mobile_number=?, gender=?, provider=?, provider=?, date_of_birth=?, province=?, city=?, barangay=?, street=? WHERE id=?";
+        $sql = "UPDATE registrants SET firstname=?, middlename=?, surname=?, mobile_number=?, gender=?, provider=?, date_of_birth=?, province=?, city=?, barangay=?, street=? WHERE id=?";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -33,8 +33,6 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             $param_city = $city;
             $param_barangay = $barangay;
             $param_street = $street;
-            $param_zipcode = $zipcode;
-            $param_date_registered = $date_registered;
             $param_id = $id;
             
             // Attempt to execute the prepared statement
@@ -89,7 +87,6 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     $city = $row["city"];
                     $barangay = $row["barangay"];
                     $street = $row["street"];
-                    $date_registered = $row["date_registered"];
                 } else{
                     // URL doesn't contain valid id. Redirect to error page
                     header("location: error.php");
