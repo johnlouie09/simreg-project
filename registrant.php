@@ -10,7 +10,7 @@ $firstname_err = $middlename_err = $surname_err = $mobile_number_err = $gender_e
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    // Validate name
+    // Validate firsname
     $input_firstname = trim($_POST["firstname"]);
     if(empty($input_firstname)){
         $firstname_err = "Please enter a name.";
@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $firstname = $input_firstname;
     }
 
-    // Validate name
+    // Validate middlename
     $input_middlename = trim($_POST["middlename"]);
     if(empty($input_middlename)){
         $middlename_err = "Please enter a name.";
@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $middlename = $input_middlename;
     }
 
-    // Validate name
+    // Validate surname
     $input_surname = trim($_POST["surname"]);
     if(empty($input_surname)){
         $surname_err = "Please enter a name.";
@@ -130,7 +130,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                // Records created successfully. Redirect to landing page
+                // Records created successfully. Redirect to success page
                 header("location: success.php");
                 exit();
             } else{
@@ -182,30 +182,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   
   <!-- JQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-
-  <!-- Datatables Plugin CDN -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
 
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header id="header" class="fixed-top">
-        <div class="container d-flex align-items-center justify-content-between">
-
-            <h1 class="logo"><a>SimReg</a></h1>
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="getstarted scrollto">Registrant Page</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
-        </div>
-   </header><!-- End Header -->
+    
         
    <section id="hero">
         <div class="container-md shadow-lg border mt-5" data-aos="fade-up" data-aos-delay="100">
@@ -234,7 +217,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="form-group">
                             <label>Gender</label> 
                             <select name="gender" class="form-select" aria-label="Default select example">
-                                <option selected disabled>select here</option>
+                                <option selected disabled>Select Gender</option>
                                 <option value="<?php echo $gender = "Female"; ?>">Female</option>
                                 <option value="<?php echo $gender = "Male"; ?>">Male</option>
                             </select>
@@ -242,7 +225,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="form-group">
                             <label>Provider</label>
                             <select name="provider" class="form-select" aria-label="Default select example">
-                                <option selected disabled>select here</option>
+                                <option selected disabled>Select Provider</option>
                                 <option value="<?php echo $provider = "DITO"; ?>">DITO</option>
                                 <option value="<?php echo $provider = "Globe"; ?>">Globe</option>
                                 <option value="<?php echo $provider = "TNT"; ?>">TNT</option>
@@ -266,27 +249,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="form-group">
                             <label>Province</label> 
                             <select name="province" class="form-select" aria-label="Default select example">
-                                <option selected disabled>select here</option>
+                                <option selected disabled>Select Province</option>
                                 <option value="<?php echo $province = "Camarines Sur"; ?>">Camarines Sur</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>City/Municipality</label> 
-                            <select name="city" class="form-select" aria-label="Default select example">
-                                <option selected disabled>select here</option>
-                                <option value="<?php echo $city = "Iriga City"; ?>">Iriga City</option>
-                                <option value="<?php echo $city = "Baao"; ?>">Baao</option>
-                                <option value="<?php echo $city = "Buhi"; ?>">Buhi</option>
-                                <option value="<?php echo $city = "Bato"; ?>">Bato</option>
-                                <option value="<?php echo $city = "Balatan"; ?>">Balatan</option>
-                                <option value="<?php echo $city = "Nabua"; ?>">Nabua</option>
-                                <option value="<?php echo $city = "Bula"; ?>">Bula</option>
+                            <select name="select" class="form-select" id="selectID" aria-label="Default select example">
+                                <option selected disabled>Select City/Municipality</option>
+                                <?php $sql = "SELECT * FROM city";
+                                  $result = mysqli_query($link,$sql);
+                                  while($row = mysqli_fetch_assoc($result)) {?>
+                                  <option value="<?php echo $row['city_id'] ?>"><?php echo $row['city_name'] ?></option>
+                                <?php }?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Barangay</label>
-                            <input type="text" name="barangay" class="form-control <?php echo (!empty($barangay_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $barangay; ?>">
-                            <span class="invalid-feedback"><?php echo $barangay_err;?></span>
+                            <select class="form-select" name="select" id="show"></select>
                         </div>
                         <div class="form-group">
                             <label>Street</label>
@@ -325,7 +305,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
 
+<script>
+    $(document).ready(function(){
+        $('#selectID').change(function(){
+          var Stdid = $('#selectID').val();
+          
+          $.ajax({
+            type: 'POST',
+            url: 'fetch.php',
+            data: {id:Stdid},
+            success: function(data)
+            {
+                $('#show').html(data);
+            }
+          });
+        });
+    });
+</script>
+</body>
 </html>
 

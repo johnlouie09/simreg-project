@@ -11,7 +11,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Get hidden input value
     $id = $_POST["id"];
 
-    // Validate name
+    // Validate firstname
     $input_firstname = trim($_POST["firstname"]);
     if(empty($input_firstname)){
         $firstname_err = "Please enter a name.";
@@ -21,7 +21,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $firstname = $input_firstname;
     }
 
-    // Validate name
+    // Validate middlename
     $input_middlename = trim($_POST["middlename"]);
     if(empty($input_middlename)){
         $middlename_err = "Please enter a name.";
@@ -31,7 +31,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $middlename = $input_middlename;
     }
 
-    // Validate name
+    // Validate surname
     $input_surname = trim($_POST["surname"]);
     if(empty($input_surname)){
         $surname_err = "Please enter a name.";
@@ -54,7 +54,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     if(empty($input_gender)){
         $gender_err = "Please enter an gender.";     
     } else{
-        $mobile_gender = $input_gender;
+        $gender = $input_gender;
     }
 
     // Validate provider
@@ -131,7 +131,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                // Records updated successfully. Redirect to landing page
+                // Records updated successfully. Redirect to admin page
                 header("location: admin.php");
                 exit();
             } else{
@@ -239,9 +239,11 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- JQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
 
 </head>
 <body>
