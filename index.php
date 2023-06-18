@@ -197,7 +197,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9 text-center">
           <h1>SIM Registration System</h1>
-          <h2>Lang pagal kadi hayssss.</h2>
+          <h2>We are team of talented students.</h2>
         </div>
       </div>
       <div class="text-center">
@@ -332,9 +332,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="member-img">
                 <img src="assets/img/team/Dev.jpg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href="https://twitter.com/navales_louie"><i class="bi bi-twitter"></i></a>
-                  <a href="https://www.facebook.com/johnlouie.navales"><i class="bi bi-facebook"></i></a>
-                  <a href="https://www.instagram.com/navalesjohnlouie/"><i class="bi bi-instagram"></i></a>
+                  <a href="https://twitter.com/navales_louie" target="_blank"><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/johnlouie.navales" target="_blank"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/navalesjohnlouie/" target="_blank"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -349,9 +349,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="member-img">
                 <img src="assets/img/team/designer.jpg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href="https://twitter.com/JeanAyen194243"><i class="bi bi-twitter"></i></a>
-                  <a href="https://www.facebook.com/profile.php?id=100074733617993"><i class="bi bi-facebook"></i></a>
-                  <a href="https://www.instagram.com/jeanny122621/"><i class="bi bi-instagram"></i></a>
+                  <a href="https://twitter.com/JeanAyen194243" target="_blank"><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=100074733617993" target="_blank"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/jeanny122621/" target="_blank"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -366,9 +366,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="member-img">
                 <img src="assets/img/team/backup.jpg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href="https://twitter.com/CabilanKris05"><i class="bi bi-twitter"></i></a>
-                  <a href="https://web.facebook.com/krisjane.cabilan"><i class="bi bi-facebook"></i></a>
-                  <a href="https://www.instagram.com/krisjane_cabilan/"><i class="bi bi-instagram"></i></a>
+                  <a href="https://twitter.com/CabilanKris05" target="_blank"><i class="bi bi-twitter"></i></a>
+                  <a href="https://web.facebook.com/krisjane.cabilan" target="_blank"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/krisjane_cabilan/" target="_blank"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -383,9 +383,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="member-img">
                 <img src="assets/img/team/tester-1.jpg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href="https://www.facebook.com/felma.colico.9"><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href="https://twitter.com/colico_fel84480" target="_blank"><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/felma.colico.9" target="_blank"><i class="bi bi-facebook"></i></a>
+                  <a href="" target="_blank"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -408,9 +408,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="member-img">
                 <img src="assets/img/team/data-admin-1.jpg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href="https://www.facebook.com/rizaline.banaga"><i class="bi bi-facebook"></i></a>
-                  <a href="https://www.instagram.com/katalinaa_02/"><i class="bi bi-instagram"></i></a>
+                  <a href="" target="_blank"><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/rizaline.banaga" target="_blank"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/katalinaa_02/" target="_blank"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -424,9 +424,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <div class="member-img">
                 <img src="assets/img/team/data-admin-2.jpg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href="https://twitter.com/AprilanneCadag/"><i class="bi bi-twitter"></i></a>
-                  <a href="https://www.facebook.com/aprilanne.cadag"><i class="bi bi-facebook"></i></a>
-                  <a href="https://www.instagram.com/itsbabyannecadag/"><i class="bi bi-instagram"></i></a>
+                  <a href="https://twitter.com/AprilanneCadag/" target="_blank"><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/aprilanne.cadag" target="_blank"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/itsbabyannecadag/" target="_blank"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
               <div class="member-info">

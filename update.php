@@ -10,6 +10,100 @@ $firstname_err = $middlename_err = $surname_err = $mobile_number_err = $gender_e
 if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Get hidden input value
     $id = $_POST["id"];
+
+    // Validate name
+    $input_firstname = trim($_POST["firstname"]);
+    if(empty($input_firstname)){
+        $firstname_err = "Please enter a name.";
+    } elseif(!filter_var($input_firstname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $firstname_err = "Please enter a valid name.";
+    } else{
+        $firstname = $input_firstname;
+    }
+
+    // Validate name
+    $input_middlename = trim($_POST["middlename"]);
+    if(empty($input_middlename)){
+        $middlename_err = "Please enter a name.";
+    } elseif(!filter_var($input_middlename, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $middlename_err = "Please enter a valid name.";
+    } else{
+        $middlename = $input_middlename;
+    }
+
+    // Validate name
+    $input_surname = trim($_POST["surname"]);
+    if(empty($input_surname)){
+        $surname_err = "Please enter a name.";
+    } elseif(!filter_var($input_surname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $surname_err = "Please enter a valid name.";
+    } else{
+        $surname = $input_surname;
+    }
+    
+    // Validate mobile_number
+    $input_mobile_number = trim($_POST["mobile_number"]);
+    if(empty($input_mobile_number)){
+        $mobile_number_err = "Please enter an mobile_number.";     
+    } else{
+        $mobile_number = $input_mobile_number;
+    }
+
+    // Validate gender
+    $input_gender = trim($_POST["gender"]);
+    if(empty($input_gender)){
+        $gender_err = "Please enter an gender.";     
+    } else{
+        $mobile_gender = $input_gender;
+    }
+
+    // Validate provider
+    $input_provider = trim($_POST["provider"]);
+    if(empty($input_provider)){
+        $provider_err = "Please enter an provider.";     
+    } else{
+        $provider = $input_provider;
+    }
+
+    // Validate date_of_birth
+    $input_date_of_birth = trim($_POST["date_of_birth"]);
+    if(empty($input_date_of_birth)){
+        $date_of_birth_err = "Please enter an date_of_birth.";     
+    } else{
+        $date_of_birth = $input_date_of_birth;
+    }
+    
+    // Validate province
+    $input_province = trim($_POST["province"]);
+    if(empty($input_province)){
+        $province_err = "Please enter an province.";     
+    } else{
+        $province = $input_province;
+    }
+
+    // Validate city
+    $input_city = trim($_POST["city"]);
+    if(empty($input_city)){
+        $city_err = "Please enter an city.";     
+    } else{
+        $city = $input_city;
+    }
+
+    // Validate barangay
+    $input_barangay = trim($_POST["barangay"]);
+    if(empty($input_barangay)){
+        $barangay_err = "Please enter an barangay.";     
+    } else{
+        $barangay = $input_barangay;
+    }
+
+    // Validate street
+    $input_street = trim($_POST["street"]);
+    if(empty($input_street)){
+        $street_err = "Please enter an street.";     
+    } else{
+        $street = $input_street;
+    }   
     
     
     // Check input errors before inserting in database
@@ -152,6 +246,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 </head>
 <body>
 
+  
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
@@ -166,10 +261,10 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             </nav><!-- .navbar -->
         </div>
    </header><!-- End Header -->
-  
+   
     <section id="hero">
         <div class="container-md shadow-lg border mt-5" data-aos="fade-up" data-aos-delay="100">
-         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/formdata" autocomplete="off">
+         <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
             <div class="row mx-3">
                 
                 
@@ -256,6 +351,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     </div>
             </div>
                     <div class="mb-3 mx-4 modal-footer">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
                     </div>

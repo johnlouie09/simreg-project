@@ -60,8 +60,8 @@
 
 
 <section id="hero">
-  <div class="text-center" class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-    <img src="assets/img/2j6jxp.gif" style="width:700;height:700px;">
+  <div class="text-center mt-5" class="container position-relative" data-aos="zoom-in" data-aos="fade-up" data-aos-delay="100">
+    <img src="assets/img/dribbble-success-2.gif" style="width:700;height:600px;">
   </div>
 </section>
 
