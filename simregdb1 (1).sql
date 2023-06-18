@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2023 at 03:00 PM
+-- Generation Time: Jun 18, 2023 at 04:29 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,50 @@ SET time_zone = "+00:00";
 --
 -- Database: `simregdb1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `barangay`
+--
+
+CREATE TABLE `barangay` (
+  `barangay_id` int(11) NOT NULL,
+  `city_id` int(11) NOT NULL,
+  `barangay_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `barangay`
+--
+
+INSERT INTO `barangay` (`barangay_id`, `city_id`, `barangay_name`) VALUES
+(1, 1, 'Antipolo'),
+(2, 2, 'Masoli');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `city`
+--
+
+CREATE TABLE `city` (
+  `city_id` int(11) NOT NULL,
+  `city_name` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`city_id`, `city_name`) VALUES
+(1, 'Baao'),
+(2, 'Balatan'),
+(3, 'Bato'),
+(4, 'Buhi'),
+(5, 'Bula'),
+(6, 'Iriga City'),
+(7, 'Nabua');
 
 -- --------------------------------------------------------
 
@@ -48,7 +92,8 @@ CREATE TABLE `registrants` (
 --
 
 INSERT INTO `registrants` (`id`, `firstname`, `middlename`, `surname`, `gender`, `provider`, `mobile_number`, `date_of_birth`, `province`, `city`, `barangay`, `street`, `date_registered`) VALUES
-(1, '', '', '', '', '', 0, '', '', '', '', '', '2023-06-13 12:59:39');
+(5, 'Louie', 'Molina', 'Navales', 'Male', 'Globe', 934734983, '2003-01-09', 'Camarines Sur', 'Buhi', 'San Antonio', 'Zone 3', '2023-06-18 12:13:42'),
+(6, 'Riza', 'Banaga', 'Bonila', 'Female', 'DITO', 9122873748, '2002-12-30', 'Camarines Sur', 'Baao', 'Buluang', 'St. Philip', '2023-06-18 12:14:24');
 
 -- --------------------------------------------------------
 
@@ -76,6 +121,18 @@ INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
 --
 
 --
+-- Indexes for table `barangay`
+--
+ALTER TABLE `barangay`
+  ADD PRIMARY KEY (`barangay_id`);
+
+--
+-- Indexes for table `city`
+--
+ALTER TABLE `city`
+  ADD PRIMARY KEY (`city_id`);
+
+--
 -- Indexes for table `registrants`
 --
 ALTER TABLE `registrants`
@@ -93,10 +150,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `barangay`
+--
+ALTER TABLE `barangay`
+  MODIFY `barangay_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `city`
+--
+ALTER TABLE `city`
+  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `registrants`
 --
 ALTER TABLE `registrants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
