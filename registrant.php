@@ -39,14 +39,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $surname = $input_surname;
     }
-    
-    // Validate address
-    $input_address = trim($_POST["address"]);
-    if(empty($input_address)){
-        $address_err = "Please enter an address.";     
-    } else{
-        $address = $input_address;
-    }
 
     // Validate mobile_number
     $input_mobile_number = trim($_POST["mobile_number"]);
@@ -59,9 +51,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate gender
     $input_gender = trim($_POST["gender"]);
     if(empty($input_gender)){
-        $mobile_number_err = "Please enter an gender.";     
+        $gender_err = "Please enter an gender.";     
     } else{
-        $mobile_gender = $input_gender;
+        $gender = $input_gender;
     }
 
     // Validate provider
