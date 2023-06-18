@@ -255,18 +255,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
                         <div class="form-group">
                             <label>City/Municipality</label> 
-                            <select name="select" class="form-select" id="selectID" aria-label="Default select example">
+                            <select name="city" class="form-select" aria-label="Default select example">
                                 <option selected disabled>Select City/Municipality</option>
-                                <?php $sql = "SELECT * FROM city";
-                                  $result = mysqli_query($link,$sql);
-                                  while($row = mysqli_fetch_assoc($result)) {?>
-                                  <option value="<?php echo $row['city_id'] ?>"><?php echo $row['city_name'] ?></option>
-                                <?php }?>
+                                <option value="<?php echo $city = "Iriga City"; ?>">Iriga City</option>
+                                <option value="<?php echo $city = "Baao"; ?>">Baao</option>
+                                <option value="<?php echo $city = "Buhi"; ?>">Buhi</option>
+                                <option value="<?php echo $city = "Bato"; ?>">Bato</option>
+                                <option value="<?php echo $city = "Balatan"; ?>">Balatan</option>
+                                <option value="<?php echo $city = "Nabua"; ?>">Nabua</option>
+                                <option value="<?php echo $city = "Bula"; ?>">Bula</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Barangay</label>
-                            <select class="form-select" name="select" id="show"></select>
+                            <input type="text" name="barangay" class="form-control <?php echo (!empty($barangay_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $barangay; ?>">
+                            <span class="invalid-feedback"><?php echo $barangay_err;?></span>
                         </div>
                         <div class="form-group">
                             <label>Street</label>
@@ -305,7 +308,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-
+<!-- 
 <script>
     $(document).ready(function(){
         $('#selectID').change(function(){
@@ -322,7 +325,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           });
         });
     });
-</script>
+</script> -->
 </body>
 </html>
 
