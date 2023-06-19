@@ -65,13 +65,36 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="getstarted scrollto" href="logout.php">Log Out</a></li>
+          <li><a class="getstarted scrollto" data-bs-toggle="modal" data-bs-target="#myModal" href="">Log Out</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
+
+  <!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body">
+
+        <h4 class="text-center">Are you sure you want to log out?</h4>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+         <p>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <a href="logout.php" class="btn btn-primary">Log Out</a>
+         </p>
+      </div> 
+    
+    </div>
+  </div>
+</div>
 
   <section id="hero">
         <div class="container-fluid">
