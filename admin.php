@@ -124,8 +124,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                         echo "<td>" . $row['street'] . "</td>";
                                         echo "<td>" . $row['date_registered'] . "</td>";
                                         echo "<td>";
-                                            echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Registrant" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Registrant" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Registrant" data-toggle="tooltip"><span class="bi bi-person-fill-add"></span></a>';
+                                            echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Registrant" data-toggle="tooltip"><span class="bi bi-person-fill-dash"></span></a>';
                                         echo "</td>";
                                     echo "</tr>";
                                 }
