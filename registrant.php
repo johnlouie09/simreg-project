@@ -293,7 +293,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
             </div>
                     <div class="mb-3 mx-4 modal-footer">
-                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <label for="myCheckbox"><i>I'll assure that the above information that I input is true with all my honesty.</i></label>
+                        <input type="checkbox" id="myCheckbox">
+                        <input type="submit" class="btn btn-primary" value="Submit" id="myButton" disabled>
                         <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
                     </div>
         </form>        
@@ -321,6 +323,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+        const checkbox = document.getElementById('myCheckbox');
+        const button = document.getElementById('myButton');
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                button.disabled = false;
+            } else {
+                button.disabled = true;
+            }
+        });
+    </script>
 
 <!-- 
 <script>
