@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2023 at 06:09 PM
+-- Generation Time: Jun 19, 2023 at 04:42 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,6 +42,16 @@ CREATE TABLE `registrants` (
   `street` text NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `registrants`
+--
+
+INSERT INTO `registrants` (`id`, `firstname`, `middlename`, `surname`, `gender`, `provider`, `mobile_number`, `date_of_birth`, `province`, `city`, `barangay`, `street`, `date_registered`) VALUES
+(10, 'Louie', 'Molina', 'Navales', 'Male', 'Globe', 9155106506, '2003-01-09', 'Camarines Sur', 'Buhi', 'San Antonio', 'Zone 3', '2023-06-19 02:25:51'),
+(11, 'Jean', 'Baita', 'Ayen', 'Female', 'Globe', 9148374839, '2001-12-26', 'Camarines Sur', 'Nabua', 'Duran', 'Zone 7', '2023-06-19 02:33:46'),
+(12, 'Kris Jane', 'Adoptante', 'Cabilan', 'Female', 'DITO', 9924857483, '2003-12-04', 'Camarines Sur', 'Buhi', 'San Isidro', 'Zone 3', '2023-06-19 02:34:37'),
+(13, 'Felma', 'San Juan', 'Colico', 'Female', 'Globe', 9156784627, '2002-12-02', 'Camarines Sur', 'Nabua', 'Duran', 'Zone 6', '2023-06-19 02:30:36');
 
 -- --------------------------------------------------------
 
@@ -89,7 +99,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `registrants`
 --
 ALTER TABLE `registrants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
