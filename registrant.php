@@ -188,7 +188,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <body>
 
-    
+    <!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a>SimReg</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="getstarted scrollto" href="">Registrant Page</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
         
    <section id="hero">
         <div class="container-md shadow-lg border mt-5" data-aos="fade-up" data-aos-delay="100">
