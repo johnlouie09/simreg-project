@@ -406,15 +406,15 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
             } else if (city === "Baao") {
                 barangays = ["Agdangan", "Antipolo", "Bagumbayan", "Buluang (San Antonio)", "Cristo Rey", "Del Pilar", "Del Rosario", "Iyagan", "La Medalla", "Caranday", "Lourdes", "Nababarera", "Sagrada", "Salvacion", "San Francisco", "San Isidro", "San Jose", "San Juan", "San Nicolas", "San Rafael", "Pugay", "San Ramon", "San Roque", "San Vicente", "Sta. Cruz", "Sta. Eulalia", "Sta. Isabel", "Sta. Teresa", "Sta. Teresita", "Tapol"];
             } else if (city === "Buhi") {
-                barangays = ["Barangay X", "Barangay Y", "Barangay Z"];
+                barangays = ["Antipolo", "Amlongan (del Rosario)", "Burocbusoc", "Cabatuan", "Cagmaslog", "Dela Fe", "Delos Angles", "Divino Rostro", "Gabas", "Ibayugan", "Igbac", "Ipil", "Iraya", "Labawon", "Lourdes-Hinulid-tubog", "Macaangay", "Monte Calvario", "Namurabod", "Sagrada", "Salvacion", "San Antonio", "San Buenaventura", "San Francisco Parada", "San Isidro", "San Jose Baybayon", "San Jose Salay", "San Pascual", "San Pedro", "San Rafael", "San Ramon", "San Roque", "San Vicente", "Santa Clara", "Santa Cruz", "Santa Elena", "Santa Isabel", "Santa Justina", "Santa Lourdes", "Tambo"];
             } else if (city === "Bula") {
-                barangays = ["Barangay X", "Barangay Y", "Barangay Z"];
+                barangays = ["Bagoladio", "Bagumbayan", "Balaogan", "Caorasan", "Casugad", "Causip", "Fabrica", "Inoyonan", "Itangon", "Kinalabasahan", "La Purisima", "La Victoria", "Lanipga", "Lubgan", "Ombao Heights", "Ombao Polpog", "Palsong", "Panoypon", "Pawili", "Sagrada", "Salvacion", "San Francisco", "San Isidro", "San Jose", "San Miguel", "San Ramon", "San Roque (Poblacion)", "San Roque Heights", "Sta. Elena", "Sto. Domingo", "Sto. Niño", "Taisan"];
             } else if (city === "Bato") {
-                barangays = ["Barangay X", "Barangay Y", "Barangay Z"];
+                barangays = ["Agos","Bacolod", "Buluang", "Caricot", "Cawacagan", "Cotmon", "Cristo Rey", "Del Rosario", "Divina Pastora (Poblacion)", "Goyudan", "Lobong", "Lubigan", "Mainit", "Manga (Mangga)", "Masoli", "Neighborhood", "Niño Jesus", "Pagatpatan", "Palo", "Payak", "Sagrada (Sagrada Familia)", "Salvacion", "San Isidro", "San Juan", "San Miguel", "San Rafael (Poblacion)", "San Roque", "San Vicente", "Santa Cruz (Poblacion)", "Santiago (Poblacion)", "Sooc", "Tagpolo", "Tres Reyes (Poblacion)"];
             } else if (city === "Nabua") {
-                barangays = ["Barangay X", "Barangay Y", "Barangay Z"];
+                barangays = ["Angustia (Angustia Inapatan)", "Antipolo Old", "Antipolo Young", "Aro-aldao", "Bustrac", "Inapatan (Del Rosario Inapatan)", "Dolorosa (Dolorosa Inapatan)", "Duran (Jesus Duran)", "La Purisima (Agupit)", "Lourdes Old", "Lourdes Young", "La Opinion", "Paloyon Oriental", "Paloyon (Sagrada Paloyon)", "Salvacion Que Gatos", "San Antonio (Poblacion)", "San Antonio Ogbon", "San Esteban (Poblacion)", "San Francisco (Poblacion)", "San Isidro (Poblacion)", "San Isidro Inapatan", "Malawag (San Jose Malawag)", "San Jose (San Jose Pangaraon)", "San Juan (Poblacion)", "San Luis (Poblacion)", "San Miguel (Poblacion)", "San Nicolas (Poblacion)", "San Roque (Poblacion)", "San Roque Madawon", "San Roque Sagumay", "San Vicente Gorong-Gorong", "San Vicente Ogbon", "Santa Barbara (Maliban)", "Santa Cruz", "Santa Elena Baras", "Santa Lucia Baras", "Santiago Old", "Santiago Young", "Santo Domingo", "Tandaay", "Topas Proper", "Topas Sogod"];
             } else if (city === "Balatan") {
-                barangays = ["Barangay X", "Barangay Y", "Barangay Z"];
+                barangays = ["Cabanbanan", "Cabungan", "Camangahan (Caorasan)", "Cayogcog", "Coguit", "Duran", "Laganac", "Luluasan", "Montenegro(dating Maguiron)", "Pararao", "Siramag (Pob.)", "Pulang Daga", "Sagrada Nacacale", "San Francisco", "Santiago Nacacale", "Tapayas", "Tomatarayo"];
             }
 
             // Add more conditions for other cities
