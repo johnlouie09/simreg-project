@@ -294,13 +294,13 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
                             <select name="city" id="city" onchange="city()" class="form-select"
                                 aria-label="Default select example">
                                 <option selected disabled>Select City/Municipality</option>
-                                <option value="<?php echo $city = "Iriga City"; ?>">Iriga City</option>
                                 <option value="<?php echo $city = "Baao"; ?>">Baao</option>
-                                <option value="<?php echo $city = "Buhi"; ?>">Buhi</option>
                                 <option value="<?php echo $city = "Bato"; ?>">Bato</option>
                                 <option value="<?php echo $city = "Balatan"; ?>">Balatan</option>
-                                <option value="<?php echo $city = "Nabua"; ?>">Nabua</option>
                                 <option value="<?php echo $city = "Bula"; ?>">Bula</option>
+                                <option value="<?php echo $city = "Buhi"; ?>">Buhi</option>
+                                <option value="<?php echo $city = "Iriga City"; ?>">Iriga City</option>
+                                <option value="<?php echo $city = "Nabua"; ?>">Nabua</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -358,6 +358,7 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 
+    <!-- Checkbox -->
     <script>
         const checkbox = document.getElementById('myCheckbox');
         const button = document.getElementById('myButton');
@@ -370,7 +371,7 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
             }
         });
 
-    
+        // Dependent Dropdowns
         $(document).ready(function () {
             $('#city').change(function () {
                 var city = $(this).val();
@@ -386,7 +387,7 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
             barangaySelect.empty(); // Clear previous options
 
             // Add default option
-            barangaySelect.append('<option value="">Select Barangay</option>');
+            barangaySelect.append('<option selected disabled>Select Barangay</option>');
 
             // Add options for each barangay
             for (var i = 0; i < barangays.length; i++) {
@@ -401,12 +402,21 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
             // Example: Returning dummy data
             var barangays = [];
             if (city === "Iriga City") {
-                barangays = ["San Miguel", "San Vicente Sur", "San Nicolas"];
+                barangays = ["Antipolo", "Cristo Rey", "Del Rosario", "Francia", "La Anunciacion", "La Medalla", "La Purisima", "La Trinidad", "Niño Jesus", "Perpetual Help", "Sagrada", "Salvacion", "San Agustin", "San Andres", "San Antonio", "San Francisco", "San Isidro", "San Jose", "San Juan", "San Miguel", "San Nicolas", "San Pedro", "San Rafael", "San Ramon", "San Roque", "Santiago", "San Vicente Norte", "San Vicente Sur", "Sta. Cruz Norte", "Sta. Cruz Sur", "Sta. Elena", "Sta. Isabel", "Sta. Maria", "Sta. Teresita", "Sto. Domingo", "Sto. Niño"];
             } else if (city === "Baao") {
-                barangays = ["San Juan", "Bagumbayan", "Salvacion"];
+                barangays = ["Agdangan", "Antipolo", "Bagumbayan", "Buluang (San Antonio)", "Cristo Rey", "Del Pilar", "Del Rosario", "Iyagan", "La Medalla", "Caranday", "Lourdes", "Nababarera", "Sagrada", "Salvacion", "San Francisco", "San Isidro", "San Jose", "San Juan", "San Nicolas", "San Rafael", "Pugay", "San Ramon", "San Roque", "San Vicente", "Sta. Cruz", "Sta. Eulalia", "Sta. Isabel", "Sta. Teresa", "Sta. Teresita", "Tapol"];
             } else if (city === "Buhi") {
                 barangays = ["Barangay X", "Barangay Y", "Barangay Z"];
+            } else if (city === "Bula") {
+                barangays = ["Barangay X", "Barangay Y", "Barangay Z"];
+            } else if (city === "Bato") {
+                barangays = ["Barangay X", "Barangay Y", "Barangay Z"];
+            } else if (city === "Nabua") {
+                barangays = ["Barangay X", "Barangay Y", "Barangay Z"];
+            } else if (city === "Balatan") {
+                barangays = ["Barangay X", "Barangay Y", "Barangay Z"];
             }
+
             // Add more conditions for other cities
 
             return barangays;
@@ -416,24 +426,6 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
 
     </script>
 
-    <!-- 
-<script>
-    $(document).ready(function(){
-        $('#selectID').change(function(){
-          var Stdid = $('#selectID').val();
-          
-          $.ajax({
-            type: 'POST',
-            url: 'fetch.php',
-            data: {id:Stdid},
-            success: function(data)
-            {
-                $('#show').html(data);
-            }
-          });
-        });
-    });
-</script> -->
 </body>
 
 </html>
