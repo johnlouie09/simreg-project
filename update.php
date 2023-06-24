@@ -328,22 +328,28 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>City/Municipality</label> 
-                            <select name="city" class="form-select" aria-label="Default select example">
-                                <option selected disabled>select here</option>
-                                <option value="<?php echo $city = "Iriga City"; ?>">Iriga City</option>
+                            <label>City/Municipality</label>
+                            <select name="city" id="city" onchange="city()" class="form-select"
+                                aria-label="Default select example">
+                                <option selected disabled>Select City/Municipality</option>
                                 <option value="<?php echo $city = "Baao"; ?>">Baao</option>
-                                <option value="<?php echo $city = "Buhi"; ?>">Buhi</option>
                                 <option value="<?php echo $city = "Bato"; ?>">Bato</option>
                                 <option value="<?php echo $city = "Balatan"; ?>">Balatan</option>
-                                <option value="<?php echo $city = "Nabua"; ?>">Nabua</option>
                                 <option value="<?php echo $city = "Bula"; ?>">Bula</option>
+                                <option value="<?php echo $city = "Buhi"; ?>">Buhi</option>
+                                <option value="<?php echo $city = "Iriga City"; ?>">Iriga City</option>
+                                <option value="<?php echo $city = "Nabua"; ?>">Nabua</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Barangay</label>
-                            <input type="text" name="barangay" class="form-control <?php echo (!empty($barangay_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $barangay; ?>">
-                            <span class="invalid-feedback"><?php echo $barangay_err;?></span>
+                            <select type="text" name="barangay" id="barangay"
+                                class="form-control <?php echo (!empty($barangay_err)) ? 'is-invalid' : ''; ?>">
+                                <option value=""></option>
+                            </select>
+                            <span class="invalid-feedback">
+                                <?php echo $barangay_err; ?>
+                            </span>
                         </div>
                         <div class="form-group">
                             <label>Street</label>
@@ -354,14 +360,73 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             </div>
                     <div class="mb-3 mx-4 modal-footer">
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
+                        <input type="submit" class="btn btn-primary btn-sm" value="Submit">
+                        <a href="index.php" class="btn btn-light btn-sm">Cancel</a>
                     </div>
         </form>        
        </div>
     </section>
 
-  <div id="preloader"></div>
+  <script>
+    // Dependent Dropdowns
+        $(document).ready(function () {
+            $('#city').change(function () {
+                var city = $(this).val();
+                updateBarangayOptions(city);
+            });
+        });
+
+        function updateBarangayOptions(city) {
+            // You can replace the following with your own logic to fetch the barangays for the selected city
+            var barangays = getBarangays(city);
+
+            var barangaySelect = $('#barangay');
+            barangaySelect.empty(); // Clear previous options
+
+            // Add default option
+            barangaySelect.append('<option selected disabled>Select Barangay</option>');
+
+            // Add options for each barangay
+            for (var i = 0; i < barangays.length; i++) {
+                barangaySelect.append('<option value="' + barangays[i] + '">' + barangays[i] + '</option>');
+            }
+        }
+
+        function getBarangays(city) {
+            // Replace this with your own logic to retrieve barangays based on the selected city
+            // You can use an AJAX request to fetch the barangays from the server
+
+            // Example: Returning dummy data
+            var barangays = [];
+            if (city === "Iriga City") {
+                barangays = ["Antipolo", "Cristo Rey", "Del Rosario", "Francia", "La Anunciacion", "La Medalla", "La Purisima", "La Trinidad", "Niño Jesus", "Perpetual Help", "Sagrada", "Salvacion", "San Agustin", "San Andres", "San Antonio", "San Francisco", "San Isidro", "San Jose", "San Juan", "San Miguel", "San Nicolas", "San Pedro", "San Rafael", "San Ramon", "San Roque", "Santiago", "San Vicente Norte", "San Vicente Sur", "Sta. Cruz Norte", "Sta. Cruz Sur", "Sta. Elena", "Sta. Isabel", "Sta. Maria", "Sta. Teresita", "Sto. Domingo", "Sto. Niño"];
+            } else if (city === "Baao") {
+                barangays = ["Agdangan", "Antipolo", "Bagumbayan", "Buluang (San Antonio)", "Cristo Rey", "Del Pilar", "Del Rosario", "Iyagan", "La Medalla", "Caranday", "Lourdes", "Nababarera", "Sagrada", "Salvacion", "San Francisco", "San Isidro", "San Jose", "San Juan", "San Nicolas", "San Rafael", "Pugay", "San Ramon", "San Roque", "San Vicente", "Sta. Cruz", "Sta. Eulalia", "Sta. Isabel", "Sta. Teresa", "Sta. Teresita", "Tapol"];
+            } else if (city === "Buhi") {
+                barangays = ["Antipolo", "Amlongan (del Rosario)", "Burocbusoc", "Cabatuan", "Cagmaslog", "Dela Fe", "Delos Angles", "Divino Rostro", "Gabas", "Ibayugan", "Igbac", "Ipil", "Iraya", "Labawon", "Lourdes-Hinulid-tubog", "Macaangay", "Monte Calvario", "Namurabod", "Sagrada", "Salvacion", "San Antonio", "San Buenaventura", "San Francisco Parada", "San Isidro", "San Jose Baybayon", "San Jose Salay", "San Pascual", "San Pedro", "San Rafael", "San Ramon", "San Roque", "San Vicente", "Santa Clara", "Santa Cruz", "Santa Elena", "Santa Isabel", "Santa Justina", "Santa Lourdes", "Tambo"];
+            } else if (city === "Bula") {
+                barangays = ["Bagoladio", "Bagumbayan", "Balaogan", "Caorasan", "Casugad", "Causip", "Fabrica", "Inoyonan", "Itangon", "Kinalabasahan", "La Purisima", "La Victoria", "Lanipga", "Lubgan", "Ombao Heights", "Ombao Polpog", "Palsong", "Panoypon", "Pawili", "Sagrada", "Salvacion", "San Francisco", "San Isidro", "San Jose", "San Miguel", "San Ramon", "San Roque (Poblacion)", "San Roque Heights", "Sta. Elena", "Sto. Domingo", "Sto. Niño", "Taisan"];
+            } else if (city === "Bato") {
+                barangays = ["Agos","Bacolod", "Buluang", "Caricot", "Cawacagan", "Cotmon", "Cristo Rey", "Del Rosario", "Divina Pastora (Poblacion)", "Goyudan", "Lobong", "Lubigan", "Mainit", "Manga (Mangga)", "Masoli", "Neighborhood", "Niño Jesus", "Pagatpatan", "Palo", "Payak", "Sagrada (Sagrada Familia)", "Salvacion", "San Isidro", "San Juan", "San Miguel", "San Rafael (Poblacion)", "San Roque", "San Vicente", "Santa Cruz (Poblacion)", "Santiago (Poblacion)", "Sooc", "Tagpolo", "Tres Reyes (Poblacion)"];
+            } else if (city === "Nabua") {
+                barangays = ["Angustia (Angustia Inapatan)", "Antipolo Old", "Antipolo Young", "Aro-aldao", "Bustrac", "Inapatan (Del Rosario Inapatan)", "Dolorosa (Dolorosa Inapatan)", "Duran (Jesus Duran)", "La Purisima (Agupit)", "Lourdes Old", "Lourdes Young", "La Opinion", "Paloyon Oriental", "Paloyon (Sagrada Paloyon)", "Salvacion Que Gatos", "San Antonio (Poblacion)", "San Antonio Ogbon", "San Esteban (Poblacion)", "San Francisco (Poblacion)", "San Isidro (Poblacion)", "San Isidro Inapatan", "Malawag (San Jose Malawag)", "San Jose (San Jose Pangaraon)", "San Juan (Poblacion)", "San Luis (Poblacion)", "San Miguel (Poblacion)", "San Nicolas (Poblacion)", "San Roque (Poblacion)", "San Roque Madawon", "San Roque Sagumay", "San Vicente Gorong-Gorong", "San Vicente Ogbon", "Santa Barbara (Maliban)", "Santa Cruz", "Santa Elena Baras", "Santa Lucia Baras", "Santiago Old", "Santiago Young", "Santo Domingo", "Tandaay", "Topas Proper", "Topas Sogod"];
+            } else if (city === "Balatan") {
+                barangays = ["Cabanbanan", "Cabungan", "Camangahan (Caorasan)", "Cayogcog", "Coguit", "Duran", "Laganac", "Luluasan", "Montenegro(dating Maguiron)", "Pararao", "Siramag (Pob.)", "Pulang Daga", "Sagrada Nacacale", "San Francisco", "Santiago Nacacale", "Tapayas", "Tomatarayo"];
+            }
+
+            // Add more conditions for other cities
+
+            return barangays;
+        }
+
+    </script>
+  
+  
+  
+  
+  
+  
+    <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 

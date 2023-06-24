@@ -80,15 +80,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <!-- Modal body -->
       <div class="modal-body">
 
-        <h4 class="text-center">Are you sure you want to log out?</h4>
+        <h5 class="text-center">Are you sure you want to log out?</h5>
 
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
          <p>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <a href="logout.php" class="btn btn-primary">Log Out</a>
+            <button type="button" class="btn btn-light btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <a href="logout.php" class="btn btn-primary btn-sm">Log Out</a>
          </p>
       </div> 
     

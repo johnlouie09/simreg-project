@@ -153,7 +153,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Admin Login</h4>
+        <h5 class="modal-title">Admin Login</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -181,7 +181,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <input type="submit" class="btn btn-primary btn-sm" value="Login">
             </div> 
         </form>
       </div>

@@ -107,8 +107,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
                             <p>Are you sure you want to delete this registrant record?</p>
                             <p>
-                                <input type="submit" value="Yes" class="btn btn-danger">
-                                <a href="admin.php" class="btn btn-secondary">No</a>
+                                <input type="submit" value="Yes" class="btn btn-danger btn-sm">
+                                <a href="admin.php" class="btn btn-light btn-sm">No</a>
                             </p>
                         </div>
                     </form>
