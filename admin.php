@@ -112,7 +112,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo '<table class="table table-bordered table-striped table-hover table-sm table-responsive{-sm|-md|-lg|-xl|-xxl}" data-aos="fade-down" data-aos-delay="100">';
-                                echo '<thead class="table-light">';
+                                echo '<thead class="table-success ">';
                                     echo "<tr>";
                                         echo "<th>Registrant ID</th>";
                                         echo "<th>First Name</th>";

@@ -14,7 +14,7 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
     $input_firstname = trim($_POST[ "firstname" ]);
     if (empty($input_firstname)) {
         $firstname_err = "Please enter a name.";
-    } elseif (!filter_var($input_firstname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z\s]+$/")))) {
+    } elseif ((!preg_match("/^[\p{L}\s]+$/u", $input_firstname))) {
         $firstname_err = "Please enter a valid name.";
     } else {
         $firstname = $input_firstname;
@@ -24,7 +24,7 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
     $input_middlename = trim($_POST[ "middlename" ]);
     if (empty($input_middlename)) {
         $middlename_err = "Please enter a name.";
-    } elseif (!filter_var($input_middlename, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z\s]+$/")))) {
+    } elseif ((!preg_match("/^[\p{L}\s]+$/u", $input_firstname))) {
         $middlename_err = "Please enter a valid name.";
     } else {
         $middlename = $input_middlename;
@@ -34,7 +34,7 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
     $input_surname = trim($_POST[ "surname" ]);
     if (empty($input_surname)) {
         $surname_err = "Please enter a name.";
-    } elseif (!filter_var($input_surname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z\s]+$/")))) {
+    } elseif ((!preg_match("/^[\p{L}\s]+$/u", $input_firstname))) {
         $surname_err = "Please enter a valid name.";
     } else {
         $surname = $input_surname;
@@ -186,6 +186,18 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
     <!-- JQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
 
+    <!-- Animated Checkbox -->
+    <style>
+        @keyframes buttonClickAnimation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .animate-click {
+            animation: buttonClickAnimation 0.3s;
+        }
+    </style>
 </head>
 
 <body>
@@ -215,44 +227,43 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
                     <h2 class="mt-5">Fill up this form</h2>
                     <p>Please fill this form and submit to add registrant record to the database.</p>
                     <div class="col-md-6 mx-auto">
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" name="firstname"
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" name="firstname" id="firstname" placeholder="Enter firstname"
                                 class="form-control <?php echo (!empty($firstname_err)) ? 'is-invalid' : ''; ?>"
                                 value="<?php echo $firstname; ?>" required>
+                            <label for="firstname">First Name</label>
                             <span class="invalid-feedback">
                                 <?php echo $firstname_err; ?>
                             </span>
                         </div>
-                        <div class="form-group">
-                            <label>Middle Name</label>
-                            <input type="text" name="middlename"
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" name="middlename" id="middlename" placeholder="Enter middlename"
                                 class="form-control <?php echo (!empty($middlename_err)) ? 'is-invalid' : ''; ?>"
                                 value="<?php echo $middlename; ?>">
+                            <label for="middlename">Middle Name</label>
                             <span class="invalid-feedback">
                                 <?php echo $middlename_err; ?>
                             </span>
                         </div>
-                        <div class="form-group">
-                            <label>Surname</label>
-                            <input type="text" name="surname"
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" name="surname" id="surname" placeholder="Enter surname"
                                 class="form-control <?php echo (!empty($surname_err)) ? 'is-invalid' : ''; ?>"
                                 value="<?php echo $surname; ?>">
+                            <label for="surname">Surname</label>
                             <span class="invalid-feedback">
                                 <?php echo $surname_err; ?>
                             </span>
                         </div>
-                        <div class="form-group">
-                            <label>Gender</label>
-                            <select name="gender" class="form-select" aria-label="Default select example">
+                        <div class="form-floating mb-3 mt-3">
+                            <select name="gender" class="form-select" id="gender" aria-label="Default select example">
                                 <option selected disabled>Select Gender</option>
                                 <option value="<?php echo $gender = "Female"; ?>">Female</option>
                                 <option value="<?php echo $gender = "Male"; ?>">Male</option>
                             </select>
+                            <label for="gender" class="form-label">Gender</label>
                         </div>
-                        <div class="form-group">
-                            <label>Provider</label>
-                            <select name="provider" class="form-select" aria-label="Default select example">
+                        <div class="form-floating mb-3 mt-3">
+                            <select name="provider" class="form-select" id="provider" aria-label="Default select example">
                                 <option selected disabled>Select Provider</option>
                                 <option value="<?php echo $provider = "DITO"; ?>">DITO</option>
                                 <option value="<?php echo $provider = "Globe"; ?>">Globe</option>
@@ -261,37 +272,37 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
                                 <option value="<?php echo $provider = "TM"; ?>">TM</option>
                                 <option value="<?php echo $provider = "SUN"; ?>">SUN</option>
                             </select>
+                            <label for="provider" class="form-label">Provider</label>
                         </div>
-                        <div class="form-group">
-                            <label>Mobile Number</label>
-                            <input type="text" name="mobile_number"
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" name="mobile_number" id="number" placeholder="Enter number"
                                 class="form-control <?php echo (!empty($mobile_number_err)) ? 'is-invalid' : ''; ?>"
                                 value="<?php echo $mobile_number; ?>">
+                            <label for="number">Mobile Number</label>
                             <span class="invalid-feedback">
                                 <?php echo $mobile_number_err; ?>
                             </span>
                         </div>
                     </div>
                     <div class="col-md-6 mx-auto">
-                        <div class="form-group">
-                            <label>Date of Birth</label>
-                            <input type="date" name="date_of_birth"
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="date" name="date_of_birth" id="birth" placeholder="enter birth"
                                 class="form-control <?php echo (!empty($date_of_birth_err)) ? 'is-invalid' : ''; ?>"
                                 value="<?php echo $date_of_birth; ?>">
+                            <label for="birth">Date of Birth</label>
                             <span class="invalid-feedback">
                                 <?php echo $date_of_birth_err; ?>
                             </span>
                         </div>
-                        <div class="form-group">
-                            <label>Province</label>
-                            <select name="province" class="form-select" aria-label="Default select example">
+                        <div class="form-floating mb-3 mt-3">
+                            <select name="province" class="form-select" id="province" aria-label="Default select example">
                                 <option selected disabled>Select Province</option>
                                 <option value="<?php echo $province = "Camarines Sur"; ?>">Camarines Sur</option>
                             </select>
+                            <label for="province" class="form-label">Province</label>
                         </div>
-                        <div class="form-group">
-                            <label>City/Municipality</label>
-                            <select name="city" id="city" onchange="city()" class="form-select"
+                        <div class="form-floating mb-3 mt-3">
+                            <select name="city" id="city" onchange="city()" class="form-select" id="mun"
                                 aria-label="Default select example">
                                 <option selected disabled>Select City/Municipality</option>
                                 <option value="<?php echo $city = "Baao"; ?>">Baao</option>
@@ -302,22 +313,23 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
                                 <option value="<?php echo $city = "Iriga City"; ?>">Iriga City</option>
                                 <option value="<?php echo $city = "Nabua"; ?>">Nabua</option>
                             </select>
+                            <label for="mun" class="form-label">City/Municipality</label>
                         </div>
-                        <div class="form-group">
-                            <label>Barangay</label>
-                            <select type="text" name="barangay" id="barangay"
+                        <div class="form-floating mb-3 mt-3">
+                            <select type="text" name="barangay" id="barangay" id="brgy"
                                 class="form-control <?php echo (!empty($barangay_err)) ? 'is-invalid' : ''; ?>">
                                 <option value=""></option>
                             </select>
+                            <label for="brgy" class="form-label">Barangay</label>
                             <span class="invalid-feedback">
                                 <?php echo $barangay_err; ?>
                             </span>
                         </div>
-                        <div class="form-group">
-                            <label>Street</label>
-                            <input type="text" name="street"
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" name="street" id="street" placeholder="Enter street"
                                 class="form-control <?php echo (!empty($street_err)) ? 'is-invalid' : ''; ?>"
                                 value="<?php echo $street; ?>">
+                            <label for="street">Street</label>
                             <span class="invalid-feedback">
                                 <?php echo $street_err; ?>
                             </span>
@@ -366,6 +378,10 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
         checkbox.addEventListener('change', function () {
             if (checkbox.checked) {
                 button.disabled = false;
+                button.classList.add('animate-click');
+                setTimeout(function() {
+                    button.classList.remove('animate-click');
+                }, 300);
             } else {
                 button.disabled = true;
             }

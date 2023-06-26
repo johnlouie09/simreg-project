@@ -153,7 +153,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h5 class="modal-title">Admin Login</h5>
+        <h6 class="modal-title">Admin Login</h6>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -166,14 +166,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         ?>
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" required>
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" name="username" id="uname" placeholder="enter username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" required>
+                <label for="uname">Username</label>
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
             </div>    
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+            <div class="form-floating mb-3 mt-3">
+                <input type="password" name="password" id="pword" placeholder="enter password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                <label for="pword">Password</label>
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
