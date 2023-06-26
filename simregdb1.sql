@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2023 at 04:42 AM
+-- Generation Time: Jun 26, 2023 at 09:06 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -48,10 +48,12 @@ CREATE TABLE `registrants` (
 --
 
 INSERT INTO `registrants` (`id`, `firstname`, `middlename`, `surname`, `gender`, `provider`, `mobile_number`, `date_of_birth`, `province`, `city`, `barangay`, `street`, `date_registered`) VALUES
-(10, 'Louie', 'Molina', 'Navales', 'Male', 'Globe', 9155106506, '2003-01-09', 'Camarines Sur', 'Buhi', 'San Antonio', 'Zone 3', '2023-06-19 02:25:51'),
-(11, 'Jean', 'Baita', 'Ayen', 'Female', 'Globe', 9148374839, '2001-12-26', 'Camarines Sur', 'Nabua', 'Duran', 'Zone 7', '2023-06-19 02:33:46'),
-(12, 'Kris Jane', 'Adoptante', 'Cabilan', 'Female', 'DITO', 9924857483, '2003-12-04', 'Camarines Sur', 'Buhi', 'San Isidro', 'Zone 3', '2023-06-19 02:34:37'),
-(13, 'Felma', 'San Juan', 'Colico', 'Female', 'Globe', 9156784627, '2002-12-02', 'Camarines Sur', 'Nabua', 'Duran', 'Zone 6', '2023-06-19 02:30:36');
+(1, 'John Louie', 'Molina', 'Navales', 'Male', 'Globe', 9155106506, '2003-01-09', 'Camarines Sur', 'Buhi', 'San Antonio', 'Zone 3', '2023-06-26 19:34:10'),
+(2, 'Jean', 'Baita', 'Ayen', 'Female', 'Globe', 9148374839, '2001-12-26', 'Camarines Sur', 'Nabua', 'Duran', 'Zone 7', '2023-06-26 17:59:40'),
+(3, 'Kris Jane', 'Adoptante', 'Cabilan', 'Female', 'DITO', 9924857483, '2003-12-04', 'Camarines Sur', 'Buhi', 'San Isidro', 'Zone 3', '2023-06-26 17:59:56'),
+(4, 'Felma', 'San Juan', 'Colico', 'Female', 'Globe', 9156784627, '2002-12-02', 'Camarines Sur', 'Nabua', 'Duran', 'Zone 6', '2023-06-26 18:00:06'),
+(5, 'Rizaline', 'Bañaga', 'Bonilla', 'Female', 'DITO', 9917329754, '2002-12-30', 'Camarines Sur', 'Baao', 'Buluang (San Antonio)', 'St. Philip', '2023-06-26 19:31:40'),
+(6, 'Apri Anne', 'Tabayag', 'Cadag', 'Female', 'TNT', 9385519445, '2001-04-30', 'Camarines Sur', 'Iriga City', 'Sta. Elena', 'Narra St.', '2023-06-26 19:33:22');
 
 -- --------------------------------------------------------
 
@@ -99,7 +101,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `registrants`
 --
 ALTER TABLE `registrants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
