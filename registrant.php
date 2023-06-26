@@ -198,7 +198,7 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="getstarted scrollto" href="">Registrant Page</a></li>
+                    <li><a class="getstarted scrollto" href="#">Registrant Page</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
