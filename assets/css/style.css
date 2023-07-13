@@ -437,6 +437,11 @@ h6 {
   font-size: 22px;
 }
 
+#hero h2 span {
+  color: #0563bb;
+  letter-spacing: 1px;
+}
+
 #hero .btn-get-started {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
