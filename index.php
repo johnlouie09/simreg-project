@@ -504,7 +504,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
    <!-- ======= Footer ======= -->
   <footer id="footer">
-    <div class="container footer-top">
+    <div class="container py-4">
+      <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
           &copy; Copyright <strong><span>OnePage</span></strong>. All Rights Reserved
         </div>
@@ -515,6 +516,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/ -->
           Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
+      </div>
     </div>
   </footer><!-- End Footer -->
 
