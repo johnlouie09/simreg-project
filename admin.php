@@ -39,15 +39,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- JQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+
   <!-- CDN Links --> 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <!-- JQuery -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+  
 
   <script>
     $(document).ready(function(){
@@ -97,12 +97,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </div>
 
   <section id="hero">
-        <div class="container-fluid">
-            <div class="mb-3 clearfix">
-                <h2 class="pull-left">...</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+   <div class="container-fluid">
+      <div class="mb-3 clearfix">
+          <h2 class="pull-left">...</h2>
+      </div>
+         <div class="row">
+            <div class="col-md-12 table-responsive">
                     <?php
                     // Include config file
                     require_once "config.php";
@@ -167,10 +167,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     // Close connection
                     mysqli_close($link);
                     ?>
-                </div>
-            </div>        
-        </div>
-    </section>
+             </div>
+         </div>        
+    </div>
+  </section>
 
     
 
@@ -194,7 +194,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

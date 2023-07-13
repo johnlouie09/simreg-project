@@ -180,9 +180,6 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <!-- CDN Links -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
     <!-- JQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
 
@@ -365,7 +362,6 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>

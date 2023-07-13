@@ -119,9 +119,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- CDN Links --> 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
-
 </head>
 
 <body>
@@ -138,7 +135,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
-          <li><a class="getstarted scrollto" data-bs-toggle="modal" data-bs-target="#myModal" href="">Admin</a></li>
+          <li><a class="getstarted scrollto" data-bs-toggle="modal" data-bs-target="#myModal" href="#">Admin</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
