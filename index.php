@@ -197,7 +197,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9 text-center">
           <h1>SIM Registration System</h1>
-          <h2>We are team of talented students.</h2>
+          <h2>We are team of <span class="typed" data-typed-items='talented, dedicated, passionate, aspiring software engineer'></span> students.</h2>
         </div>
       </div>
       <div class="text-center">
@@ -538,7 +538,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
