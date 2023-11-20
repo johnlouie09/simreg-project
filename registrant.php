@@ -336,8 +336,8 @@ if ($_SERVER[ "REQUEST_METHOD" ] == "POST") {
                 <div class="mb-3 mx-4 modal-footer">
                     <label for="myCheckbox"><i class="small">I'll assure that the above information that I input is true with all my
                             honesty.</i></label>
-                    <input type="checkbox" id="myCheckbox">
-                    <input type="submit" class="btn btn-primary btn-sm" value="Submit" id="myButton" disabled>
+                    <input type="checkbox" id="myCheckbox"style="margin-right: 8px;">
+                    <input type="submit" class="btn btn-primary btn-sm" style="margin-right: 8px;" value="Submit" id="myButton" disabled>
                     <a href="index.php" class="btn btn-light btn-sm">Cancel</a>
                 </div>
             </form>
